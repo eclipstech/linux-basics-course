@@ -70,11 +70,13 @@
   -  Lets get our hands on [LABS](https://kodekloud.com/courses/873064/lectures/17074533)
 
 **LAB NETWORK-Basics**
-Run: ip a and check the IP address assigned (besides the localhost 127.0.0.1)
+
+
+Run:** ip a **and check the IP address assigned (besides the localhost 127.0.0.1)
 
 Q: What is the name of the interface that has this IP (from the previous question) address assigned?
 
-S: Run: ip a and check the interfaces to which the IP's is assigned or
+S: Run: **ip a** and check the interfaces to which the IP's is assigned or
    Run: **ip link**
 Q: What is the default gateway configured in the system?
 
