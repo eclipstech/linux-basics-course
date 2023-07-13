@@ -57,7 +57,7 @@
     ```
 
   - To check the port status use **`netstat`** command and to use it along with port number use below command.
-    netstat can be use to print information of the network connection, routing table, 
+    netstat can be use to print information of the network connection, routing table, etc ...
     ```
     [caleston-repo-01: ~]$ netstat -an | grep 80 | grep -i LISTEN
     ```
