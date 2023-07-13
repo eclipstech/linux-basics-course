@@ -82,14 +82,16 @@ Q: We have an apache which should be accessible on devapp01-web.
    This server runs on port 80 on the server and should be accessible from Bob's laptop.
    However, something seems to be wrong with the network! 
   Check if you are able to connect to the HTTP port 80 on the server devapp01-web from Bob's laptop?
-  Run a **Telnet port 80 on devapp01-web** to test.
+  Run a **Telnet port 80 on devapp01-web** to test.\n
 S: Run: **telnet devapp01-web 80 ** and check if it's successful.
 
 Q: Are you able to ping devapp01-web server?
+
 S: **sudo ping devapp01-web**
 
 Q: Luckily, this webserver has two interfaces. The second interface is on another network and is identified by the name devapp01. Check if you are able to ping devapp01
   Is ping working now?
+  
 S: **sudo ping devapp01**
 
 Q: Let's troubleshoot from the other end. SSH to the webserver by running ssh devapp01
