@@ -72,7 +72,7 @@
 **LAB NETWORK-Basics**
 
 
-Run:** ip a **and check the IP address assigned (besides the localhost 127.0.0.1)
+Run: **ip a** and check the IP address assigned (besides the localhost 127.0.0.1)
 
 Q: What is the name of the interface that has this IP (from the previous question) address assigned?
 
@@ -80,7 +80,7 @@ S: Run: **ip a** and check the interfaces to which the IP's is assigned or
    Run: **ip link**
 Q: What is the default gateway configured in the system?
 
-S: Run: **ip r ** and check the GW assigned to default route.It should be 172.16.238.1
+S: Run: **ip r** and check the GW assigned to default route.It should be 172.16.238.1
 
 Q: We have an apache which should be accessible on devapp01-web. 
    This server runs on port 80 on the server and should be accessible from Bob's laptop.
@@ -88,7 +88,7 @@ Q: We have an apache which should be accessible on devapp01-web.
   Check if you are able to connect to the HTTP port 80 on the server devapp01-web from Bob's laptop?
   Run a **Telnet port 80 on devapp01-web** to test.
   
-S: Run: **telnet devapp01-web 80 ** and check if it's successful.
+S: Run: **telnet devapp01-web 80** and check if it's successful.
 
 Q: Are you able to ping devapp01-web server?
 
