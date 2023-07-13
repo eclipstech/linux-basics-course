@@ -34,7 +34,7 @@
     Address: 192.168.2.5
     ```
 
-  - **`ping`** to check the connectivity.
+  - **`ping`** to check the connectivity with the remote server.
 
     ```
     [~]$ ping caleston-repo-01
@@ -44,7 +44,7 @@
     3 packets transmitted, 0 received, 100% packet loss, time 2034ms
     ```
  
-  - **`traceroute`** to check the number of hops between the source. 
+  - **`traceroute`** to check the number of hops between the source and the destination server. 
 
     ```
     [~]$ traceroute 192.168.2.5
@@ -57,7 +57,7 @@
     ```
 
   - To check the port status use **`netstat`** command and to use it along with port number use below command.
-
+    netstat can be use to print information of the network connection, routing table, 
     ```
     [caleston-repo-01: ~]$ netstat -an | grep 80 | grep -i LISTEN
     ```
