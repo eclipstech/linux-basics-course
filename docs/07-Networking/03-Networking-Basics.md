@@ -73,16 +73,19 @@
 Run: ip a and check the IP address assigned (besides the localhost 127.0.0.1)
 
 Q: What is the name of the interface that has this IP (from the previous question) address assigned?
+
 S: Run: ip a and check the interfaces to which the IP's is assigned or
    Run: **ip link**
 Q: What is the default gateway configured in the system?
+
 S: Run: **ip r ** and check the GW assigned to default route.It should be 172.16.238.1
 
 Q: We have an apache which should be accessible on devapp01-web. 
    This server runs on port 80 on the server and should be accessible from Bob's laptop.
    However, something seems to be wrong with the network! 
   Check if you are able to connect to the HTTP port 80 on the server devapp01-web from Bob's laptop?
-  Run a **Telnet port 80 on devapp01-web** to test.\n
+  Run a **Telnet port 80 on devapp01-web** to test.
+  
 S: Run: **telnet devapp01-web 80 ** and check if it's successful.
 
 Q: Are you able to ping devapp01-web server?
@@ -97,13 +100,16 @@ S: **sudo ping devapp01**
 Q: Let's troubleshoot from the other end. SSH to the webserver by running ssh devapp01
    Use Bob's default password: caleston123
    Inspect the interface eth0 on devapp01, is it UP?
+   
 S: run: **ip link** and look at the status of the interface starting with **eth0**
 
 Q: Bring up the eth0 interface
+
 S: Run: **sudo ip link set dev eth0 up**
 
 Q: While we are at it, there is also a missing default route on the server devapp01.
    Add the default route via eth0 gateway.
+   
 S: To add the default route via eth0 gateway, run the following command: 
    **sudo ip r add default via 172.16.238.1**
    To delete the default route using the ip r command, you can use the following command:
