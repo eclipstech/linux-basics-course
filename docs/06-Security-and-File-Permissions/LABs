@@ -4,4 +4,11 @@ S: Run: sudo grep bob /etc/sudoers. Bob has ALL permissions (4th field)
 
 Q: Which access control file has the encrypted password for the users?
 
-S: run: sudo grep bob /etc/shadow and look for the password field which is the second field delimited by a :.
+S: run: sudo grep bob /etc/shadow and look for the password field which is the second field delimited by a :
+
+Q: Create a group called john with the GID 1010. Next create another user called john with UID = 1010, primary group = john and login shell = /bin/sh
+
+S: Run: sudo groupadd -g 1010 john
+   sudo useradd -u 1010 -g 1010 -s /bin/sh john
+
+
