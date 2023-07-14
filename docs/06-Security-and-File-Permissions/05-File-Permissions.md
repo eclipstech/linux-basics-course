@@ -103,11 +103,19 @@
     [~]$ chown bob andoid.apk
     ```
 
+
+ - Change the owner of sport directory including all files inside to android. 
+
+    ```
+    [~]$ chown -R android sport
+    ```
+    
   - Change the group for the test-file to the group called android. 
 
     ```
     [~]$ chgrp android test-file
     ```
+
 
 # HANDS-ON LABS
 
