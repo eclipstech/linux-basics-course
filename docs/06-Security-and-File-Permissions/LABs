@@ -1,0 +1,7 @@
+Q: What level of sudo access does bob have in this system?
+
+S: Run: sudo grep bob /etc/sudoers. Bob has ALL permissions (4th field)
+
+Q: Which access control file has the encrypted password for the users?
+
+S: run: sudo grep bob /etc/shadow and look for the password field which is the second field delimited by a :.
