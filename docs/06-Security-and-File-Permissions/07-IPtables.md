@@ -45,19 +45,28 @@ sudo iptables -A INPUT -p TCP -s 172.16.238.187 --dport 22 -j ACCEPT
 sudo iptables -A INPUT -p TCP -s 172.16.238.187 --dport 80 -j ACCEPT
 ```
 
-    The -A or --append option Add or appends the rule at the end of the selected chain.
+The -A or --append option Add or appends the rule at the end of the selected chain.
 
-    The -s or --source option Source specification. source IP or range on witch you want the connection to be permited
+The -s or --source option Source specification. source IP or range on witch you want the connection to be permited
 
-    The -d is the destination port witch is port 22 for SSH
+The -d is the destination port witch is port 22 for SSH
 
-    The -j, --jump option specifies the target of the rule.
+The -j, --jump option specifies the target of the rule.
 
-    The -p, --protocol option defines protocol of the rule or the packet to check
+The -p, --protocol option defines protocol of the rule or the packet to check
 
-    The --dport or --destination-port refers to the destination port.
+The --dport or --destination-port refers to the destination port.
 
-    The --sport or --source-port refers to source port.
+The --sport or --source-port refers to source port.
+
+
+- To Drop any other SSH incoming connection on port **22** , you can run the following command.
+
+```
+sudo iptables -A INPUT -p TCP --dport 22 -j DROP
+```
+
+
 
 - To list the **iptables rules**,
 
@@ -67,6 +76,7 @@ Chain INPUT (policy ACCEPT)
 target     prot opt source               destination
 ACCEPT     tcp  --  caleston-lp10        anywhere             tcp dpt:ssh
 ACCEPT     tcp  --  caleston-lp10        anywhere             tcp dpt:http
+DROP       tcp  --  anywhere             anywhere             tcp dpt:ssh
 
 Chain FORWARD (policy ACCEPT)
 target     prot opt source               destination
