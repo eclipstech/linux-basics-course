@@ -19,8 +19,13 @@
     ssh <user>@<hostname OR IP Address>
     ```
 
-    **`-l`** attribute can also be used as 
+    **`-l`** attribute can also be used as
 
+    **Requirements:**
+
+    - The Remote server should have SSH service running in port 22 accessible from the client for the connection to work.
+    - you need valide username and password created on the remote system that you can use / an SSH Key
+    
     ```
     ssh –l <user> <hostname OR IP Address>
     ```
