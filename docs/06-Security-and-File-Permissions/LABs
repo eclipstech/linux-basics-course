@@ -12,3 +12,32 @@ S: Run: sudo groupadd -g 1010 john
    sudo useradd -u 1010 -g 1010 -s /bin/sh john
 
 
+IPtable LAB:
+
+In this Lab, we will secure the development environment by making use of iptables.
+
+Wherever required, use sudo to run commands as the root user. Bob's password is caleston123.
+
+Here is the simple architecture diagram of the implementation. This is a two-tier application. 
+
+The web server is hosted on devapp01.
+
+The DB server is hosted on devdb01.
+
+The Software Repository is hosted on caleston-repo-01.
+
+Here are the connectivity requirements:
+SSH should be allowed from Bob's laptop to both Web and DB servers.
+HTTP/80 from the Web Server should be accessible from Bob's laptop.
+The Web Server should be able to access the Software Repository server at port 80
+
+ ![Screenshot 2023-07-15 at 10.38.26 AM](../../images//Screenshot 2023-07-15 at 10.38.26 AM.png)
+
+
+
+
+
+
+
+
+
