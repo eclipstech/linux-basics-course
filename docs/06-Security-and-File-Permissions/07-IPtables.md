@@ -46,10 +46,15 @@ sudo iptables -A INPUT -p TCP -s 172.16.238.187 --dport 80 -j ACCEPT
 ```
 
 The -A or --append option appends the rule at the end of the selected chain.
+
 The -s or --source option Source specification.
+
 The -j, --jump option specifies the target of the rule.
+
 The -p, --protocol option defines protocol of the rule or the packet to check
+
 The --dport or --destination-port refers to the destination port.
+
 The --sport or --source-port refers to source port.
 
 - To list the **iptables rules**,
