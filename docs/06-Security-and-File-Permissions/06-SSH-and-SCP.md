@@ -83,10 +83,9 @@
    - To copy a directory to a remote server
 
      ```
-     [bob@caleston-lp10 ~]$ scp –pr /home/bob/media/ devapp01:/home/bob
-
-               -r is used to copy directories
-               -p is used to preserve the ownership and permissions of the source file 
+     [bob@caleston-lp10 ~]$ scp –pr /home/bob/media/ devapp01:/home/bob 
      ```
+               -r is used to copy directories
+               -p is used to preserve the ownership and permissions of the source file
      
      ![scp](../../images//scp.PNG)
