@@ -31,8 +31,55 @@ SSH should be allowed from Bob's laptop to both Web and DB servers.
 HTTP/80 from the Web Server should be accessible from Bob's laptop.
 The Web Server should be able to access the Software Repository server at port 80
 
-![Iptables-LAB](../../images//Iptables-LAB.png)
+NB: Go to the image section to see the Iptables-LAB.png diagram
 
+
+Q1: Install iptables on devapp01 and devdb01 servers
+
+S: bob@caleston-lp10:~$ ssh devapp01 
+
+   bob@devapp01:~$ sudo apt install iptables -y
+
+   bob@devapp01:~$ exit
+
+   bob@caleston-lp10:~$ ssh devdb01
+
+   bob@devdb01:~$ sudo apt install iptables -y 
+
+Q2: Are there any iptable rules created on either Web Server or DB Server right now?
+
+S: bob@devdb01:~$ sudo iptables -L
+
+   bob@devdb01:~$ ssh devapp01 
+
+   bob@devapp01:~$ sudo iptables -L
+
+Q3: On devapp01, add an incoming rule permitting SSH and HTTP connection from Bob's Laptop.
+
+   Bob's Laptop has an IP address of 172.16.238.187.
+
+S: bob@devdb01:~$ ssh devapp01
+
+   bob@devapp01:~$ sudo iptables -A INPUT -p TCP -s 172.16.238.187 --dport 22 -j ACCEPT
+
+   bob@devapp01:~$ sudo iptables -A INPUT -p TCP -s 172.16.238.187 --dport 80 -j ACCEPT
+
+Q4: Now, lockdown incoming traffic on devapp01. Drop incoming connections from any source on any destination port for any protocol (TCP/UDP).
+
+   Remember, this rule should be at the bottom of the chain for the SSH and HTTP access from caleston-lp10 to work.
+
+S: bob@devapp01:~$ sudo iptables -A INPUT -j DROP
+
+Q5: On devapp01, add an outgoing rule permitting access to port 5432 on devdb01 and HTTP access to caleston-repo-01. Once this is done, 
+   block outgoing traffic to any destination on http/https ports from devapp01
+
+   Note: caleston-repo-01 has the ip address of 172.16.238.15
+
+S: bob@devapp01:~$ sudo iptables -A OUTPUT -p TCP -d 172.16.238.11 --dport 5432 -j ACCEPT; sudo iptables -A OUTPUT -p TCP -d 172.16.238.15 --dport 80 -j ACCEPT; sudo iptables -A OUTPUT -p tcp --dport 80 -j DROP; sudo iptables -A OUTPUT -p tcp --dport 443 -j DROP
+
+Q6: Add an OUTPUT rule to the top of the chain which will allow https connection to google.com on devapp01
+
+S: bob@devapp01:~$ sudo iptables -I OUTPUT -p tcp -d google.com --dport 443 -j ACCEPT
 
 
 
