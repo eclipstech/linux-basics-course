@@ -45,19 +45,19 @@ sudo iptables -A INPUT -p TCP -s 172.16.238.187 --dport 22 -j ACCEPT
 sudo iptables -A INPUT -p TCP -s 172.16.238.187 --dport 80 -j ACCEPT
 ```
 
-    -A or --append option Add or appends the rule at the end of the selected chain.
+    The -A or --append option Add or appends the rule at the end of the selected chain.
 
-    -s or --source option Source specification. source IP or range on witch you want the connection to be permited
+    The -s or --source option Source specification. source IP or range on witch you want the connection to be permited
 
-    -d is the destination port witch is port 22 for SSH
+    The -d is the destination port witch is port 22 for SSH
 
-    -j, --jump option specifies the target of the rule.
+    The -j, --jump option specifies the target of the rule.
 
-    -p, --protocol option defines protocol of the rule or the packet to check
+    The -p, --protocol option defines protocol of the rule or the packet to check
 
-    --dport or --destination-port refers to the destination port.
+    The --dport or --destination-port refers to the destination port.
 
-    --sport or --source-port refers to source port.
+    The --sport or --source-port refers to source port.
 
 - To list the **iptables rules**,
 
