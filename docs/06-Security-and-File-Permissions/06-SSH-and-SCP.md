@@ -56,6 +56,9 @@
 
     ```
     bob@caleston-lp10 ~]$ ssh-copy-id bob@devapp01
+
+          bob is the client userName.
+          devapp01 is the remote server hostName/IP.
     ```
 
     ![copy](../../images//copy.PNG)
