@@ -31,7 +31,7 @@ SSH should be allowed from Bob's laptop to both Web and DB servers.
 HTTP/80 from the Web Server should be accessible from Bob's laptop.
 The Web Server should be able to access the Software Repository server at port 80
 
- ![Screenshot 2023-07-15 at 10.38.26 AM](../../images//Screenshot 2023-07-15 at 10.38.26 AM.png)
+![Screenshot 2023-07-15 at 10.38.26 AM](../../images//Screenshot 2023-07-15 at 10.38.26 AM.png)
 
 
 
