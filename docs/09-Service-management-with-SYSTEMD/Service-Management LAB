@@ -1,0 +1,65 @@
+This lab requires several commands to be run as the root user. Always use sudo.
+
+Bob's default password is caleston123
+
+Q1: What is the status of the sample.service unit?
+
+S: Run: sudo systemctl status sample.service
+
+Q2: Try starting the service
+
+S: Run: sudo systemctl start sample.service
+
+Q3: Why did the service start fail?
+
+S: Run: sudo journalctl -u sample.service
+
+Q4: Update the [Service] section
+
+Set the ExecStart to run the script /bin/bash /root/sample_script.sh.
+Once done, start the service.
+
+S: Run: sudo vi /etc/systemd/system/sample.service
+
+Add /bin/bash /root/sample_script.sh to ExecStart
+
+Save and Exit.
+
+run sudo systemctl daemon-reload
+
+and then start the service: - sudo systemctl start sample.service
+
+Q5: instect the status of sample.service
+
+S: run sudo systemctl status sample.service
+
+Q6: Enable this service now so that it will be started automatically after a reboot for multi-user.target
+
+S: Run: sudo systemctl enable sample.service
+
+Q7: Now update the service to ensure that it restarts when stopped for any reason.
+
+  user Restart=always derivative.
+
+S: Run: sudo vi /etc/systemd/system/sample.service
+
+  Add Restart=always to the Service section.
+
+  Save and Exit
+
+Q8: Try and restart the service now.
+
+  There seems to be a warning. What is the fix?
+
+S: sudo systemctl start sample.service or restart will fail.
+
+  Since you updated the service unit file, you need to reload it first.
+
+  to reload the service unit, run sudo systemctl daemon-reload
+
+Q9: How would you check the errors encountered earlier when the sample service did not have a valid service section?
+
+S: Run: journalctl -u sample.service
+
+
+
