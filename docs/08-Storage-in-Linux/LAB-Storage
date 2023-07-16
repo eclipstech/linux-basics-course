@@ -80,6 +80,90 @@ S:  Add it in the FSTAB
 
 
 
+LAB 3 : LVM (LOGICAL VOLUME MANAGER )
+
+
+This lab requires some commands to be run as the root user. Always use sudo.
+
+Bob's default password is caleston123
+
+Q1: Is LVM installed on this machine?
+
+
+
+S: Try out commands such as pvdisplay or lvs 
+
+    ==> Yes
+
+Q2: LVM is installed on this machine and you will find that a physical volume has already been created.
+
+    What is the name of this physical volume?
+
+S: Run: pvdisplay
+
+    ==>   PV Name               /dev/vda1
+
+Q: What is the size of this physical volume?
+
+S: Run: pvdisplay and lsblk to verify the size
+
+    ==>   PV Size               <10.00 GiB / not usable 2.00 MiB   = 10GB
+
+Q4: What is the name of the volume group created using this PV?
+
+S: Run: pvdisplay or vgdisplay
+
+  ==> VG Name               vagrant-vg
+
+Q5: Now, we will create a new VG. To do this we will make use of the disks /dev/vdb and /dev/vdc
+
+    What are the size of these disks individually?
+
+S: Run: sudo lsblk and inspect the size of disks. Each disk is of size 1G.
+
+Q6: Create PV's using /dev/vdb and /dev/vdc.
+
+S: Run: sudo pvcreate /dev/vdb and sudo pvcreate /dev/vdc
+
+    $ sudo pvcreate /dev/vdb; sudo pvcreate /dev/vdc
+
+Q7: Create a new volume group called caleston_vg using the newly created PV's
+
+S: Run: sudo vgcreate caleston_vg /dev/vdb /dev/vdc
+
+Q8: Create a new logical volume called data from the caleston_vg.
+
+    Size of the volume should be 1G
+
+S: Run: sudo lvcreate -L 1G -n data caleston_vg
+
+Q9: Create a new logical volume called data from the caleston_vg.
+
+  Size of the volume should be 1G
+
+S: Run: sudo lvcreate -L 1G -n data caleston_vg
+
+Q10: Create an ext4 filesystem on this logical volume and mount it at /mnt/media
+
+S: Run: sudo mkdir /mnt/media
+  sudo mkfs.ext4 /dev/mapper/caleston_vg-data
+  sudo mount /dev/mapper/caleston_vg-data /mnt/media/
+
+Q11: Add 500M to the logical volume called data.
+
+  Do not unmount the filesystem.
+
+S: Run: sudo lvresize -L +500M -n /dev/mapper/caleston_vg-data
+
+  sudo resize2fs /dev/mapper/caleston_vg-data
+
+
+
+
+
+
+
+
 
 
 
