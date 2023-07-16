@@ -1,0 +1,37 @@
+1- Storage-Basics
+
+This lab requires some commands to be run as the root user. Always use sudo.
+
+Bob's default password is caleston123
+
+Q1: How many disk type block devices are present in the system?
+
+S: Run: lsblk and look for disk devices
+
+Q2: How many maximum partitions (primary or extended ) can an MBR have?
+
+S: MBR can have up to 4 partitions.
+
+Q3: Create a GPT partition called vdb1 of size 500M on the disk /dev/vdb
+
+You can install gdisk by running sudo apt install gdisk
+
+S: Run: sudo gdisk /dev/vdb
+
+  In the interactive prompt, enter n
+
+  Select parition number = 1 (for vdd1)
+
+  Select default first sector = 2048
+
+  Select +500M when asked for last sector
+
+  Use default hex code = 8300
+
+  Finally type w to write to the partition table
+
+
+2- Filesystem
+
+
+
