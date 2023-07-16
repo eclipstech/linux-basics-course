@@ -1,4 +1,4 @@
-1- Storage-Basics
+LAB 1 :  Storage-Basics
 
 This lab requires some commands to be run as the root user. Always use sudo.
 
@@ -31,7 +31,63 @@ S: Run: sudo gdisk /dev/vdb
   Finally type w to write to the partition table
 
 
-2- Filesystem
+LAB 2 :  Filesystem
+
+This lab requires some commands to be run as the root user. Always use sudo.
+
+Bob's default password is caleston123
+
+Q1: Which of the following filesystems does not use a journal?
+
+S: EXT2 does not use a journal and hence has longer recovery boot time.
+
+Q2: Out of the disks /dev/vdb and /dev/vdc, which one has a filesystem created?
+
+S: Run: sudo df -h
+  /dev/vdc is mounted at /mnt/backups. This is only possible if it has a filesystem.
+
+Q3: Can you find out the type of filesystem created in /dev/vdc?
+
+  Use the blkid command with the disk name as the argument.
+
+S: Run: sudo blkid /dev/vdc      
+  => (TYPE="ext2")
+
+Q4: Create an ext4 filesystem on the disk /dev/vdb and mount it at /mnt/data
+
+S: Run: sudo mkfs.ext4 /dev/vdb
+
+  sudo mkdir /mnt/data
+
+  sudo mount /dev/vdb /mnt/data
+
+  sudo df -h
+
+Q5: What would happen to the mount /mnt/data after a system reboot?
+
+S: The mount is not persistent in FSTAB yet. If the system is rebooted, the filesystem will not be mounted
+
+Q6: Make the mount persistent across reboot.
+
+Use rw option with the dump and pass numbers both set to 0
+
+S:  Add it in the FSTAB
+    Run: sudo vi /etc/fstab
+
+    Add the line /dev/vdb /mnt/data ext4 rw 0 0
+
+    Save and Exit.
+
+
+
+
+
+
+
+
+
+
+
 
 
 
